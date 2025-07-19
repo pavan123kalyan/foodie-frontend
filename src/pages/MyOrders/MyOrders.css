@@ -1,0 +1,220 @@
+/* src/pages/MyOrders/MyOrders.css */
+
+.my-orders-page {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 50px auto;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+.my-orders-page h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.loading-message,
+.error-message,
+.no-orders-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 50px;
+    padding: 25px;
+    border: 1px dashed #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.error-message {
+    color: #d9534f;
+    border-color: #d9534f;
+    background-color: #ffebeb;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-card {
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 15px 20px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.95em;
+    color: #333;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.order-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.parcel-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.order-items-summary {
+    flex: 3;
+    font-weight: 500;
+    color: #444;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 150px;
+}
+
+.order-amount {
+    flex: 1;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    min-width: 80px;
+}
+
+.order-items-count {
+    flex: 0.8;
+    color: #777;
+    text-align: center;
+    min-width: 60px;
+}
+
+.order-status-display {
+    flex: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    white-space: nowrap;
+    justify-content: center;
+    min-width: 120px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Status specific colors */
+.status-dot.food-processing { background-color: #ffc107; } /* Orange/Yellow */
+.order-status-text.food-processing { color: #ffc107; }
+
+.status-dot.out-for-delivery { background-color: #ffc107; } /* Medium Purple/Blue Violet */
+.order-status-text.out-for-delivery { color:#ffc107; }
+
+.status-dot.delivered { background-color: #28a745; } /* Green for Delivered */
+.order-status-text.delivered { color: #28a745; }
+
+.status-dot.confirmed { background-color: #28a745; } /* Green for confirmed (if still used) */
+.order-status-text.confirmed { color: #28a745; }
+
+.status-dot.failed { background-color: #dc3545; } /* Red for failed */
+.order-status-text.failed { color: #dc3545; }
+
+/* Track Order Button */
+.track-order-button {
+    background-color: #e44d26;
+    color: white;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    white-space: nowrap;
+    margin-left: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .my-orders-page {
+        padding: 15px;
+    }
+    .order-card {
+        font-size: 0.9em;
+        padding: 15px;
+    }
+    .order-items-summary {
+        min-width: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    .my-orders-page h2 {
+        font-size: 2em;
+    }
+    .order-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .parcel-icon {
+        margin-bottom: 5px;
+    }
+
+    .order-items-summary,
+    .order-amount,
+    .order-items-count,
+    .order-status-display {
+        width: 100%;
+        text-align: left;
+        min-width: unset;
+        font-size: 1em;
+    }
+
+    .order-amount {
+        order: 2;
+    }
+    .order-items-count {
+        order: 3;
+    }
+    .order-status-display {
+        order: 4;
+        justify-content: flex-start;
+    }
+
+    .track-order-button {
+        order: 5;
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 15px;
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .my-orders-page h2 {
+        font-size: 1.6em;
+    }
+    .order-card {
+        padding: 10px;
+        font-size: 0.85em;
+    }
+    .parcel-icon {
+        width: 30px;
+        height: 30px;
+    }
+    .track-order-button {
+        padding: 8px 12px;
+        font-size: 0.85em;
+    }
+}

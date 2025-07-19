@@ -1,0 +1,46 @@
+/* src/pages/VerifyPayment.css */
+
+.verify-payment {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Inter', sans-serif; /* Assuming Inter font */
+}
+
+.verify-payment .spinner {
+    margin-bottom: 20px;
+    animation: rotate 1s infinite ;
+}
+@keyframes rotate {
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+
+.verify-payment p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.verify-payment .buttons button {
+    background-color: #4CAF50; /* Green for success, adjust as needed */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.verify-payment .buttons button:hover {
+    background-color: #45a049;
+}
