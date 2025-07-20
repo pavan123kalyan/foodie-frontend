@@ -1,20 +1,23 @@
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react' // Import useContext
 import './Home.css'
 import Header from '../../components/Header/Header'
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu'
 import FoodDisplay from '../../components/FoodDisplay/FoodDisplay'
 import AppDownload from '../../components/AppDownload/AppDownload'
-const Home = () => {
-    const [category, setCategory]=useState('All');
+import { StoreContext } from '../../context/StoreContext'; // Import StoreContext
 
-  return (
-    <div>
-      <Header />
-      <ExploreMenu category={category} setCategory={setCategory} />
-      <FoodDisplay category={category}/>
-      <AppDownload />
-    </div>
-  )
+const Home = () => {
+    // Consume category and setCategory from StoreContext
+    const { category, setCategory } = useContext(StoreContext); // <--- GET category and setCategory from context
+
+    return (
+        <div>
+            <Header />
+            <ExploreMenu category={category} setCategory={setCategory} />
+            <FoodDisplay category={category}/>
+            <AppDownload />
+        </div>
+    )
 }
 
 export default Home

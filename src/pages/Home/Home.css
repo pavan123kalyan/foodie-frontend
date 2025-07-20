@@ -1,0 +1,35 @@
+/* frontend/src/pages/Home/Home.css */
+
+/* Basic container styling for the entire Home page */
+.home-container {
+    /* Add some padding to prevent content from touching the edges */
+    padding: 0 20px; /* Adjust as needed */
+    margin-top: 20px; /* Space from the Navbar */
+    font-family: 'Inter', sans-serif; /* Consistent font */
+    color: #333; /* Default text color */
+}
+
+/* You might add styles for sections within Home.jsx if they don't have their own CSS */
+/* For example, if you have a wrapper div inside Home.jsx */
+/*
+.home-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+*/
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .home-container {
+        padding: 0 15px; /* Reduce padding on smaller screens */
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-container {
+        padding: 0 10px; /* Further reduce padding on very small screens */
+        margin-top: 10px;
+    }
+}

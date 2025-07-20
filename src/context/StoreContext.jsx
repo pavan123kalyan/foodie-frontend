@@ -6,9 +6,21 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) =>{
 
     const [cartItems,setCartItems]=useState({});
-    const url="https://foodie-backend-t7kv.onrender.com"
+    const url="http://localhost:4000"
     const [token,setToken]=useState("");
     const [food_list,setFoodList]=useState([]);
+
+    // PROMO CODE STATES
+    const [isPromoApplied, setIsPromoApplied] = useState(false);
+    const [discountAmount, setDiscountAmount] = useState(0);
+    const promoCodeValue = "pavan10";
+
+    // SEARCH FUNCTIONALITY STATE
+    const [searchQuery, setSearchQuery] = useState('');
+
+    // CATEGORY STATE (Moved from Home.jsx to StoreContext)
+    const [category, setCategory] = useState("All"); // Initial category is "All"
+
 
     const addToCart= async(itemId)=>{
         if(!cartItems[itemId]){
@@ -37,13 +49,13 @@ const StoreContextProvider = (props) =>{
     }
 
     const getTotalCartAmount =() =>{
-        if (food_list.length === 0) return 0; // Ensure food_list is loaded
+        if (food_list.length === 0) return 0;
 
         let totalAmount = 0;
         for(const item in cartItems){
             if(cartItems[item]>0){
                 let iteminfo=food_list.find((product)=>product._id===item);
-                if (iteminfo) { // Ensure iteminfo is found
+                if (iteminfo) {
                     totalAmount += iteminfo.price * cartItems[item];
                 } else {
                     console.warn(`Food item with ID ${item} not found in food_list.`);
@@ -52,6 +64,13 @@ const StoreContextProvider = (props) =>{
         }
         return totalAmount;
     }
+
+    const getFinalOrderAmount = () => {
+        const subtotal = getTotalCartAmount();
+        const deliveryFee = subtotal === 0 ? 0 : 70;
+        return subtotal - discountAmount + deliveryFee;
+    };
+
 
     const fetchFoodList = async ()=>{
         try {
@@ -92,13 +111,23 @@ const StoreContextProvider = (props) =>{
     const contextValue={
         food_list,
         cartItems,
-        setCartItems, // <--- Ensure setCartItems is exported here
+        setCartItems,
         addToCart,
         removeFromCart,
         getTotalCartAmount,
         url,
         token,
-        setToken
+        setToken,
+        isPromoApplied,
+        setIsPromoApplied,
+        discountAmount,
+        setDiscountAmount,
+        promoCodeValue,
+        getFinalOrderAmount,
+        searchQuery,
+        setSearchQuery,
+        category, // Export category state
+        setCategory // Export setCategory function
     }
 
     return(

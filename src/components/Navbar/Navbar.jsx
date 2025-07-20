@@ -6,16 +6,40 @@ import { StoreContext } from '../../context/StoreContext';
 
 const Navbar = ({setShowLogin}) => {
     const [Menu, setMenu] =useState("Menu");
-    // Destructure setCartItems from StoreContext
-    const {getTotalCartAmount,token,setToken,setCartItems}=useContext(StoreContext); // <--- ADDED setCartItems
+    const {getTotalCartAmount,token,setToken,setCartItems,
+           searchQuery, setSearchQuery} = useContext(StoreContext); // <--- ADDED searchQuery, setSearchQuery
 
     const navigate=useNavigate();
     const logout=()=>{
-      localStorage.removeItem("token"); // Remove token from local storage
-      setToken(""); // Clear token state
-      setCartItems({}); // <--- CRITICAL: Clear cart items state immediately
-      navigate("/"); // Navigate to home page
+      localStorage.removeItem("token");
+      setToken("");
+      setCartItems({});
+      navigate("/");
     }
+
+    // State to control search input visibility
+    const [showSearchInput, setShowSearchInput] = useState(false);
+
+    const handleSearchIconClick = () => {
+      setShowSearchInput(prev => !prev); // Toggle search input visibility
+      if (showSearchInput) { // If search input is about to hide, clear query
+        setSearchQuery(''); // Clear search query when hiding input
+      }
+    };
+
+    const handleSearchInputChange = (e) => {
+      setSearchQuery(e.target.value);
+      // Optionally, navigate to home or menu section when searching
+      // This ensures the FoodDisplay component is visible
+      if (e.target.value) {
+        navigate('/'); // Navigate to home page to show filtered results
+        setMenu("Home"); // Keep Home active
+      } else {
+        // If search query is cleared, navigate back to home and set menu to Home
+        navigate('/');
+        setMenu("Home");
+      }
+    };
 
     return (
       <div className='navbar'>
@@ -27,7 +51,20 @@ const Navbar = ({setShowLogin}) => {
           <a href='#footer' onClick={()=>setMenu("Contact us")} className={Menu==="Contact us"?"active":""}>Contact us</a>
         </ul>
         <div className="navbar-right">
-          <img src={assets.search_icon} alt="search"/>
+          {/* Search Icon and Input */}
+          <div className="navbar-search-container">
+            <img src={assets.search_icon} alt="search" onClick={handleSearchIconClick} className="search-icon-toggle"/>
+            {showSearchInput && (
+              <input
+                type="text"
+                placeholder="Search food..."
+                className="navbar-search-input"
+                value={searchQuery}
+                onChange={handleSearchInputChange}
+              />
+            )}
+          </div>
+
           <div className='navbar-search-icon'>
               <Link to='/cart'><img src={assets.basket_icon} alt="basket" /></Link>
               <div className={getTotalCartAmount()===0?"":"dot"}></div>

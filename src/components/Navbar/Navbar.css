@@ -31,7 +31,6 @@
 }
 .navbar button:hover{
     background-color:#fff4f2;
-    
 }
 .navbar .active{
     padding-bottom:2px;
@@ -85,6 +84,45 @@
 .nav-profile-dropdown li:hover{
     color: #E65100;
 }
+
+/* NEW STYLES FOR SEARCH */
+.navbar-search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.search-icon-toggle {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.navbar-search-input {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 16px;
+    outline: none;
+    width: 0; /* Hidden by default */
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    box-sizing: border-box;
+    position: absolute; /* Position relative to its container */
+    right: 30px; /* Adjust based on your layout to align with search icon */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0; /* Ensure it's behind other elements if needed */
+}
+
+/* When search input is visible, expand it */
+.navbar-search-container .navbar-search-input {
+    width: 180px; /* Adjust as needed */
+    opacity: 1;
+}
+
+
 @media(max-width:1050px){
     .navbar .logo{
         width:140px;
@@ -96,7 +134,7 @@
     .navbar-right{
         gap:30px;
     }
-    .navbar right img{
+    .navbar-right img{
         width:22px;
     }
     .navbar-right button{
@@ -115,7 +153,7 @@
     .navbar-right{
         gap:20px;
     }
-    .navbar right img{
+    .navbar-right img{
         width:20px;
     }
     .navbar-right button{
@@ -128,5 +166,29 @@
     .navbar-menu{
         display:none;
     }
-    
+    /* Adjust search input for mobile */
+    .navbar-search-container {
+        position: static;
+        width: auto;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+    .navbar-search-input {
+        width: 100% !important;
+        opacity: 1 !important;
+        margin-left: 0; /* Remove margin-left */
+        position: static; /* Remove absolute positioning */
+        transform: none; /* Remove transform */
+    }
+    .navbar-right {
+        flex-grow: 1;
+        justify-content: flex-end;
+        gap: 15px;
+    }
+    .search-icon-toggle {
+        order: 2; /* Place search icon after input on mobile */
+    }
+    .navbar-search-input {
+        order: 1; /* Place input first on mobile */
+    }
 }

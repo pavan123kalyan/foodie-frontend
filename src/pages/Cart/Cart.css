@@ -14,38 +14,38 @@
 }
 .cart-items-item img{
 width:60px;
- }
- .cart hr{
+}
+.cart hr{
     height:1px;
     background-color:grey;
     border:none;
- }
+}
 
- .cart-items-item .cross{
+.cart-items-item .cross{
     cursor:pointer;
 
- }
- .cart-bottom{
+}
+.cart-bottom{
     margin-top:80px;
     display:flex;
     justify-content:space-between;
     gap:max(12vw,20px);
- }
- .cart-total{
+}
+.cart-total{
     flex:1;
     display:flex;
     flex-direction:column;
     gap:20px;
- }
- .cart-total-details{
+}
+.cart-total-details{
     display:flex;
     justify-content:space-between;
     color:#555;
- }
- .cart-total hr{
+}
+.cart-total hr{
     margin:10px 0px;
- }
- .cart-total button{
+}
+.cart-total button{
     border:none;
     color:white;
     background-color:#E65100;
@@ -53,40 +53,64 @@ width:60px;
     padding:12px 0px;
     border-radius:4px;
     cursor:pointer;
- }
- .cart-promocode{
+}
+.cart-promocode{
     flex:1;
- }
-  .cart-promocode p{
+}
+.cart-promocode p{
     color:grey;
-  }
- .cart-promocode-input{
+}
+.cart-promocode-input{
     margin-top:10px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     background-color:#eaeaea;
     border-radius:4px;
- }
+}
 .cart-promocode-input input{
     background:transparent;
     border:none;
     outline:none;
     padding-left:10px;
-  }
-   .cart-promocode-input button{
+}
+.cart-promocode-input button{
     width:max(10vw,150px);
     padding:12px 5px;
     background-color:black;
     border:none;
     color:white;
     border-radius:4px;
-   }
-   @media(max-width:750px){
+}
+
+/* New styles for promo code functionality */
+.cart-total-details p:nth-child(2) { /* Targeting the price/amount paragraphs */
+    font-weight: 500; /* Make amounts a bit bolder */
+}
+
+.cart-total-details b { /* For the final Total */
+    font-size: 1.1em;
+    color: #E65100; /* Highlight total */
+}
+
+.promo-applied-message {
+    color: green;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Disable button/input styling */
+.cart-promocode-input input:disabled,
+.cart-promocode-input button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media(max-width:750px){
     .cart-bottom{
         flex-direction:column-reverse;
     }
     .cart-promocode{
         justify-content:start;
     }
-   }
+}
