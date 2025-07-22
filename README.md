@@ -1,12 +1,24 @@
-# React + Vite
+Thrilled to share my latest project Foodie, a MERN stack food delivery application built and deployed in just one week! This project reflects my full-stack development skills and ability to independently ship a scalable, secure, and user-friendly web app.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔧 Key Features & Tech Highlights:
+Frontend (React.js + CSS):
+⚛ Responsive UI with real-time search, category filtering, cart management
+🏷 Promo code support (pavan10 for 10% off)
+🌐 Axios for API calls, ✨ React-Toastify for notifications, ✍ Google Fonts for typography
 
-Currently, two official plugins are available:
+Backend (Node.js + Express.js):
+🔐 JWT-based authentication + bcrypt password hashing
+💾 MongoDB with Mongoose for schema modeling & validation
+📦 Cart logic using body-parser, 🖼 image upload via Multer
+💳 Razorpay payment integration with real-time signature verification
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Admin Panel:
+⚙ Secure backend-authenticated admin dashboard to manage and update order statuses
 
-## Expanding the ESLint configuration
+Development & Deployment:
+🔄 Used Nodemon + Postman for API development/testing
+☁ Fully deployed on Render with production-ready setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+https://github.com/user-attachments/assets/0f5ab124-f567-465d-9191-7abeb1301e15
+
