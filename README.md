@@ -1,6 +1,8 @@
 Thrilled to share my latest project Foodie, a MERN stack food delivery application built and deployed in just one week! This project reflects my full-stack development skills and ability to independently ship a scalable, secure, and user-friendly web app.
 
 🔧 Key Features & Tech Highlights:
+
+
 Frontend (React.js + CSS):
 ⚛ Responsive UI with real-time search, category filtering, cart management
 🏷 Promo code support (pavan10 for 10% off)
